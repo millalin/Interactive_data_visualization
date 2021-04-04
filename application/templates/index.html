@@ -1,63 +1,16 @@
-<!DOCTYPE html>
-<html >
-<head>
-<meta charset="UTF-8">
-<title>World emissions </title>
-<style>
-h1 {text-align: center;}
+{% extends "layout.html" %}
 
-form { 
-margin: 0 auto; 
-width:1200px;
-}
-div {
-border-radius: 50px;
-background-color: rgb(157, 206, 194);;
-padding: 5px;
-margin: 0 auto; 
-width:700px;
-}
+{% block body %}
 
-.button {
-border: none;
-color: rgb(0, 2, 1);
-padding: 16px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 14px;
-font: arial;
-margin: 6px 3px;
-transition-duration: 0.4s;
-cursor: pointer;
-border: 3px solid #818685;
-background-color: #bbbebd;
-border-radius: 15px
-}
+<h1 style="color: teal">World emissions</h1>
+<br />
 
-.button:hover {
-background-color: #549e7f;
-color: white;
-}
+<p>Annul emissions of the world has been growing along the years. With some 
+    .<br>countries more than others. See yourself.</p>
 
-.imgContainer{
-    float:left;
-}
+    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/5730227"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    <br />
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
 
-</style>
-</head>
-<body style="background: rgb(157, 206, 194);">
-<h1>World emissions </h1>
-<div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/5730227"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-<br>
-<br>
-</div>
-</body>
-</html>
+
+{% endblock %}
