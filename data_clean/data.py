@@ -76,6 +76,8 @@ continent_data.drop('num', inplace = True, axis=1)
 data_with_continent_info = pd.merge(data, continent_data, on= ['code'], how='left')
 data_with_continent_info.to_csv('data_with_continent_info.csv', index = True)
 
+print(data_with_continent_info.dtypes)
+
 
 data_clean = data[data.country != 'Statistical differences']
 data_clean = data_clean[data_clean.country != 'World']
@@ -118,9 +120,11 @@ data2 = data2[data2.country != 'Kuwaiti Oil Fires']
 data2 = data2[data2.country != 'Kosovo']
 data2 = data2[data2.country != 'Leeward Islands']
 
-
-
-data2.to_csv("testest.csv", index = True)
+print(data2.head())
+countries_in_columns = data2[data2.year >1899]
+countries_in_columns = countries_in_columns.set_index(['year', 'country']).emission.unstack()
+print(countries_in_columns.dtypes)
+countries_in_columns.to_csv('countries_in_columns.csv', index = True)
 
 # Bigger data to remove
 # Asia, Asia (excl. China & India), EU-27, EU-28, Europe, Europe (excl. EU-27), Europe (excl. EU-28), 
@@ -128,11 +132,11 @@ data2.to_csv("testest.csv", index = True)
 
 
 df2 = data2.set_index(['code', 'year']).emission.unstack()
-#df2.drop(df.iloc[:, 0:149], inplace = True, axis = 1)
 
 df2.drop(df.iloc[:, 0:69], inplace = True, axis = 1)
 df2 = df2.fillna(0)
 
+per_capita = data2.set_index(['code', 'year']).per_capita.unstack()
 
 
 # drop 149 first years
@@ -140,9 +144,6 @@ df.drop(df.iloc[:, 0:149], inplace = True, axis = 1)
 df.drop('World',inplace = True, axis=0)
 
 df = df.fillna(0)
-without_continent = df
-
-
 
 country_code = data2
 country_code.drop('year', inplace = True, axis=1)
@@ -156,8 +157,14 @@ clean_with_continent = pd.merge(clean_with_continent, country_code, on= ['code']
 df.to_csv('clean.csv', index = True)
 clean_with_continent.to_csv('clean_with_continent.csv', index = True)
 
+clean_per_capita = pd.merge(per_capita, continent_data, on= ['code'], how='left')
+clean_per_capita = pd.merge(clean_per_capita, country_code, on= ['code'], how='left')
+clean_per_capita.to_csv('clean_per_capita.csv', index = True)
+
 
 # used with smaller data 
+
+#without_continent = df
 #without_continent.drop('EU-28',inplace = True, axis=0)
 #without_continent.drop('Asia and Pacific (other)',inplace = True, axis=0)
 #without_continent.drop('Europe (other)',inplace = True, axis=0)
@@ -172,13 +179,9 @@ clean_with_continent.to_csv('clean_with_continent.csv', index = True)
 
 world = pd.read_csv("co2_emission.csv", delimiter = ",")
 world.columns = ['country', 'code', 'year', 'emission']
-
 world = world.loc[world['country'] == 'World']
 world = world.astype(int, errors='ignore')
-
 world.to_csv('world.csv', index = True)
-
-
 world = world.set_index(['country', 'year']).emission.unstack()
 world.drop(world.iloc[:, 0:149], inplace = True, axis = 1)
 
