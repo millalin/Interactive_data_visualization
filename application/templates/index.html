@@ -2,13 +2,19 @@
 
 {% block body %}
 
-<h1 style="color: teal">World emissions</h1>
+<h1 style="color: teal">World emissions</h1> 
+<form action="{{ url_for('per_capita')}}"method="get">
+    <button type="submit" class="btn1" style="float: right;">See Per capita</button>
+    </form>
+
+
 <br />
 
 <p>Annul emissions of the world has been growing along the years. With some 
     .<br>countries more than others. See yourself.</p>
 
-    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/5730227"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+
+    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/5768791"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
     <br />
 
 

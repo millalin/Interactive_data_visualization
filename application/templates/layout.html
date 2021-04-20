@@ -12,12 +12,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     .btn1 {
-      background-color: rgb(182, 245, 208);
+      background-color: rgb(123, 209, 159);
       border: none;
       color: rgb(83, 81, 81);
       padding: 12px 16px;
       font-size: 22px;
       cursor: pointer;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     }
 
     .btn2 {
@@ -44,7 +46,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
 
-          <a class="nav-link" href="{{ url_for('chart') }}">Chart &nbsp;&nbsp;&nbsp;<br> 
+          <a class="nav-link" href="{{ url_for('bubble') }}">Bubble Chart &nbsp;&nbsp;&nbsp;<br> 
           </a>
         </li>
         <a class="nav-link" href="{{ url_for('by_country') }}">Inspect by country &nbsp;&nbsp;&nbsp;<br></a>

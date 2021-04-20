@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1 style="color: teal">World emissions</h1>
+<form action="{{ url_for('start')}}"method="get">
+    <button type="submit" class="btn1" style="float: right;">See total emissions</button>
+    </form>
+
+<br />
+
+<p>Annul emissions of the world has been growing along the years. With some 
+    .<br>countries more than others. Per capita.</p>
+
+
+
+    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/5840430"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+    <br />
+
+
+
+{% endblock %}

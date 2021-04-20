@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+</head>
+<body>
+<h1>World CO2 and GHG emissions </h1>
+<form action="{{ url_for('bubble')}}"method="get">
+    <button type="submit" class="btn1" style="float: right;">See total emissions</button>
+    </form>
+    <div class="flourish-embed flourish-hierarchy" data-src="visualisation/5840515"><script src="https://public.flourish.studio/resources/embed.js"></script></div><br>
+<br>
+</div>
+
+{% endblock %}
