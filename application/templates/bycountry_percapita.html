@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+</head>
+<body">
+<h1>Inspect emissions per person by country </h1>
+<form action="{{ url_for('by_country')}}"method="get">
+    <button type="submit" class="btn1" style="float: right;">See total emission chart by country</button>
+    </form>
+
+    <p>Write and select countries you want to inspect.
+        <br>See emissions per person.</p>
+<div class="flourish-embed flourish-chart" data-src="visualisation/5937091"><script src="https://public.flourish.studio/resources/embed.js"></script></div><br>
+<br>
+</div>
+
+{% endblock %}

@@ -5,6 +5,13 @@
 </head>
 <body">
 <h1>Inspect emissions by country </h1>
+<form action="{{ url_for('by_country_per_capita')}}"method="get">
+    <button type="submit" class="btn1" style="float: right;">See emissions per person</button>
+    </form>
+
+
+<p>Write and select countries you want to inspect.</p>
+
 <div class="flourish-embed flourish-chart" data-src="visualisation/5844380"><script src="https://public.flourish.studio/resources/embed.js"></script></div><br>
 <br>
 </div>

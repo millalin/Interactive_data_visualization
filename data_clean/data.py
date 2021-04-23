@@ -55,8 +55,6 @@ big_data.drop('ghg_per_capita', inplace = True, axis=1)
 
 big_data = big_data.fillna(0)
 
-print(big_data.head())
-
 big_data.columns = ['code', 'country', 'year', 'emission', 'per_capita', 'cumulative', 'pop', 'gdp']
 
 big_data.to_csv('big_data.csv', index = True)
@@ -120,11 +118,13 @@ data2 = data2[data2.country != 'Kuwaiti Oil Fires']
 data2 = data2[data2.country != 'Kosovo']
 data2 = data2[data2.country != 'Leeward Islands']
 
-print(data2.head())
 countries_in_columns = data2[data2.year >1899]
 countries_in_columns = countries_in_columns.set_index(['year', 'country']).emission.unstack()
-print(countries_in_columns.dtypes)
 countries_in_columns.to_csv('countries_in_columns.csv', index = True)
+
+countries_in_columns_per_capita = data2[data2.year >1899]
+countries_in_columns_per_capita = countries_in_columns_per_capita.set_index(['year', 'country']).per_capita.unstack()
+countries_in_columns_per_capita.to_csv('countries_in_columns_per_capita.csv', index = True)
 
 # Bigger data to remove
 # Asia, Asia (excl. China & India), EU-27, EU-28, Europe, Europe (excl. EU-27), Europe (excl. EU-28), 
