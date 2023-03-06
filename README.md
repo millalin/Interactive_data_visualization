@@ -2,4 +2,4 @@
 
 Data visualization of different coutries CO2 emissions.
 
-Current state of the site can be found in https://world-emissions.herokuapp.com/
+Currently application can be found in Render https://world-emissions.onrender.com/
